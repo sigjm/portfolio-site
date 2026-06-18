@@ -1,0 +1,15 @@
+[
+  {
+    "title": "cozyIoT",
+    "description": "MQTT 기반 Android IoT 제어 앱입니다. 실내 상태 모니터링, 창문 제어, Python/MicroPython 연동, CAD 설계 흐름을 포함합니다.",
+    "tags": [
+      "Android",
+      "Java",
+      "MQTT",
+      "Python",
+      "MicroPython",
+      "CAD (SolidWorks)"
+    ],
+    "href": "https://github.com/sigjm/cozyIoT"
+  }
+]
