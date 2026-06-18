@@ -17,8 +17,10 @@
 ## 🛠 기술 스택
 
 - **Frontend**: HTML, CSS, JavaScript
+- **상태 관리**: 별도 상태 관리 라이브러리 없음
+- **데이터베이스**: 없음 (`projects.json` 정적 데이터 사용)
+- **배포**: Docker, Docker Compose, Nginx
 - **UI / Interaction**: CSS Grid, Responsive Layout, Intersection Observer, Canvas
-- **Infrastructure**: Docker, Docker Compose, Nginx
 - **Network / Ops**: Cloudflare Tunnel, Nginx Proxy Manager, Portainer
 - **Project Stack**: Android, Java, MQTT, Python, MicroPython, CAD (SolidWorks)
 
