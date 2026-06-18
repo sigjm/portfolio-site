@@ -84,17 +84,6 @@ portfolio-site/
 └── README.md
 ```
 
-## 🚀 실행 방법
-
-```bash
-npm install
-npm run test
-npm run build
-docker compose up -d --build
-```
-
-기본 서비스 포트는 `172.17.0.1:3000`입니다.
-
 ## 🔗 링크
 
 - Website: [jmllem.com](https://jmllem.com/)
