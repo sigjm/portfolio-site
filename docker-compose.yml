@@ -4,19 +4,51 @@ services:
     image: jmllem-portfolio:latest
     container_name: homepage
     restart: always
+    depends_on:
+      portfolio-db:
+        condition: service_healthy
+    environment:
+      PORT: 3000
+      DB_HOST: portfolio-db
+      DB_PORT: 3306
+      DB_USER: portfolio
+      DB_PASSWORD: portfolio_pass
+      DB_NAME: portfolio
     ports:
-      - "172.17.0.1:3000:80"
+      - "172.17.0.1:3000:3000"
     read_only: true
     tmpfs:
-      - /var/cache/nginx:rw,noexec,nosuid,size=32m
-      - /var/run:rw,noexec,nosuid,size=4m
       - /tmp:rw,noexec,nosuid,size=16m
     security_opt:
       - no-new-privileges:true
     cap_drop:
       - ALL
-    cap_add:
-      - CHOWN
-      - NET_BIND_SERVICE
-      - SETGID
-      - SETUID
+    healthcheck:
+      test: ["CMD-SHELL", "node -e \"fetch('http://127.0.0.1:3000/api/health').then((response) => process.exit(response.ok ? 0 : 1)).catch(() => process.exit(1))\""]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 20s
+
+  portfolio-db:
+    image: mariadb:11
+    container_name: portfolio_mariadb
+    restart: always
+    environment:
+      MARIADB_DATABASE: portfolio
+      MARIADB_USER: portfolio
+      MARIADB_PASSWORD: portfolio_pass
+      MARIADB_ROOT_PASSWORD: portfolio_root_pass
+    volumes:
+      - portfolio_mariadb_data:/var/lib/mysql
+    security_opt:
+      - no-new-privileges:true
+    healthcheck:
+      test: ["CMD-SHELL", "mariadb-admin ping -h 127.0.0.1 -u root -pportfolio_root_pass --silent"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 30s
+
+volumes:
+  portfolio_mariadb_data:

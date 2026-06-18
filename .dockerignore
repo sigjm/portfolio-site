@@ -1,3 +1,8 @@
-public/*.bak-*
 **/*.bak-*
+node_modules
+dist
+.git
+.gitignore
 backups/
+npm-debug.log*
+.DS_Store

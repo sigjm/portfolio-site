@@ -14,14 +14,14 @@
   },
   {
     "title": "portfolio-site",
-    "description": "개인 포트폴리오 정적 웹사이트입니다. 섹션 기반 내비게이션, 반응형 레이아웃, 프로젝트 데이터 분리, Docker/Nginx 배포 구성을 포함합니다.",
+    "description": "React, TypeScript, Styled Components 기반 개인 포트폴리오입니다. Recoil 상태 관리, MariaDB 프로젝트 데이터, Docker 배포 구성을 포함합니다.",
     "tags": [
-      "HTML",
-      "CSS",
-      "JavaScript",
-      "Docker",
-      "Nginx",
-      "Cloudflare Tunnel"
+      "React",
+      "TypeScript",
+      "Styled Components",
+      "Recoil",
+      "MariaDB",
+      "Docker"
     ],
     "href": "https://github.com/sigjm/portfolio-site"
   }
